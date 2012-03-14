@@ -1,0 +1,7 @@
+This uses Twitter Bootstrap for it's very pretty design, however all the functions are called inside index.php.
+
+Functions:
+- Play/Pause
+- Next/Back
+- Song details
+- Volume control
