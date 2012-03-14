@@ -13,6 +13,15 @@ if (isset($_GET['next'])) {
 if (isset($_GET['last'])) { 
 	$iTunes->PreviousTrack();
 }
+if(isset($_GET["volumeup"])) {
+	$current = $iTunes->SoundVolume();
+	$iTunes->SoundVolume = $current + 10;
+}
+if(isset($_GET["volumedown"])) {
+	$current = $iTunes->SoundVolume();
+	$iTunes->SoundVolume = $current - 10;
+}
+ 
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -76,7 +85,9 @@ if (isset($_GET['last'])) {
 		<a href="?last"<button class="btn btn-success">Last</button></a>
 		<a href="?<?php echo $state ?>"<button class="btn btn-success"><?php echo ucfirst($state) ?></button></a>
 		<a href="?next"<button class="btn btn-success">Next</button></a>
-		<input type="range"  min="0" max="100" value="<?php echo $iTunes->SoundVolume(); ?>" onchange="<?php $itunes->SoundVolume = this.value; ?>" step="5"/>
+		<p>
+		<a href="?volumeup"<button class="btn btn-success">Volume up</button></a>
+		<a href="?volumedown"<button class="btn btn-success">Volume down</button></a>
 
     </div> <!-- /container -->
 
@@ -84,5 +95,7 @@ if (isset($_GET['last'])) {
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="../assets/js/bootstrap.js"></script>
+	<script type="text/javascript">
+</script>
   </body>
 </html>
